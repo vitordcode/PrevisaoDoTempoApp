@@ -18,7 +18,7 @@
 
         <div class="weather-box">
           <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
-          <div class="weather">{{ weather.weather[0].main }}</div>
+          <div class="weather">{{ weather.weather[0].description }}</div>
         </div>
       </div>
     </main>
@@ -42,14 +42,14 @@ export default {
   methods: {
     fetchWeather(e) {
       if (e.key == "Enter") {
-        fetch(`${this.url_base}weather?q=${this.query}&lang=pt_br&units=metric&APPID=${this.api_key}`).then(res => {
+        fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}&lang=${this.lang}`).then(res => {
           return res.json()
         }).then(this.setResults)
       }
     },
     setResults(results) {
-      console.log
       this.weather = results
+      console.log(results)
     },
     dateBuilder() {
       let d = new Date()
