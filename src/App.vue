@@ -5,7 +5,7 @@
         <input 
           type="text" 
           class="search-bar" 
-          placeholder="Search..."
+          placeholder="Buscar..."
           v-model="query"
           @keypress="fetchWeather">
       </div>
